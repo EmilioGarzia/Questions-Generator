@@ -1,12 +1,3 @@
-<!-- toc start: 2 [do not erase this comment] -->
-**Table of contents**
-- [Questions Generator](#questions-generator)
-	- [How to run](#how-to-run)
-	- [How to insert your questions](#how-to-insert-your-questions)
-	- [Dependencies](#dependencies)
-- [Author](#author)
-<!-- toc end [do not erase this comment] -->
-
 # Questions Generator
 
 
