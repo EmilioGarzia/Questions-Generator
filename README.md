@@ -6,6 +6,9 @@
 
 ## How to insert your questions
 
+## Demo
+
+![demo](images/demo.gif)
 
 ## Dependencies
 
