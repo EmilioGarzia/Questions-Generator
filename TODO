@@ -1,0 +1,8 @@
+* ChatGPT API for answers
+* Change stucture of JSON
+    * Question
+    * Answer
+    * Hint
+    * Difficult
+* Add feature: users can mark wrong answer, and that question
+* Start the exam simulation only on easy, medium or hard questions, this options will be activate directly from the arg parser option
