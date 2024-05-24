@@ -1,10 +1,6 @@
+* Refactor all source code to fix the problem relative to dataframe
 * ChatGPT API for answers
-* Change stucture of JSON
-    * Question
-    * Answer
-    * Hint
-    * Difficult
 * Add feature: users can mark wrong answer, and the marked questions have a higher chance of getting out
-* Start the exam simulation only on easy, medium or hard questions, this options will be activate directly from the arg parser option
 * Add GUI (when the algorithm is completed)
    * The users can create a JSON file for different topics directly from the GUI
+   * Checkbox -> not repeated questions
