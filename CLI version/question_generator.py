@@ -54,33 +54,33 @@ def show_hint(questions):
 
 # init the questions by the difficulty
 def init_questions(questions):
-       q = DataFrame(columns=["question", "answer", "hint", "difficulty"])
+       if difficulty != -1:   
+              for i in range(0, len(questions["question"])):
+                     if questions["difficulty"][i] != difficulty:
+                            pop_from_dict(questions, i)
 
-       for i in range(len(questions)):
-              if questions["difficulty"][i] == difficulty:
-                     q = q._append({
-                            "question": questions["question"][i],
-                            "answer": questions["answer"][i],
-                            "hint": questions["hint"][i],
-                            "difficulty": questions["difficulty"][i]
-                     }, ignore_index=True)
-       return q
-
+# function that remove question from the questions dictionary
 def pop_from_dict(dict, index):
        for element in dict:
               if index in dict[element]:
                      del dict[element][index]
-                     
+
+# function that reset the indecx of the dictionary
+def reorganize_index(dict):
+       new_dict = {}
+       for key in dict:
+              new_dict[key] = {new_index: dict[key][old_index] for new_index, old_index in enumerate(dict[key])}
+       
+       return new_dict
 
 # driver code
 if __name__ == "__main__":
+       global choice
        questions = read_csv(args["questions"]).to_dict()
-       #questions = init_questions(questions)
-       #n_tuple = questions.shape[0]
-
-       pop_from_dict(questions, 0)
-       print(questions)
-
+       init_questions(questions)
+       questions = reorganize_index(questions)
+       n_tuple = len(questions["question"])
+       
        """# Print questions (and answers)
        option = ""
        while option != "q":
