@@ -5,7 +5,7 @@
 
 import random as r
 import os
-from pandas import read_csv, DataFrame
+from pandas import read_csv
 from rich import print
 from rich import console
 import argparse as ap
@@ -17,7 +17,7 @@ clear_command = "cls" if OS=="nt" else "clear"
 
 # Define argparser
 parser = ap.ArgumentParser()
-parser.add_argument("-q", "--questions", default="data.csv" ,help="Define CSV file that contains the questions, default='data.csv'")
+parser.add_argument("-q", "--questions", default="questions.csv" ,help="Define CSV file that contains the questions, default='data.csv'")
 parser.add_argument("-d", "--difficulty", default=-1, help="Specify the difficulty of the questions, default=-1", type=int)
 parser.add_argument("-r", "--no_repeat", action="store_true", help="Questions are shown only once")
 args = vars(parser.parse_args())
@@ -75,41 +75,44 @@ def reorganize_index(dict):
 
 # driver code
 if __name__ == "__main__":
-       global choice
        questions = read_csv(args["questions"]).to_dict()
        init_questions(questions)
        questions = reorganize_index(questions)
-       n_tuple = len(questions["question"])
+       n_questions = len(questions["question"])
        
-       """# Print questions (and answers)
+       print(n_questions)
+
+       # Print questions (and answers)
        option = ""
        while option != "q":
               # Clear the screen and print logo
               os.system(clear_command)
               print("[bold yellow]Question Generator developed by Emilio Garzia")
 
-              choice = r.randint(a=0, b=n_tuple-1)
+              if n_questions <= 0:
+                     print("[bold red]Questions are finished!")
+                     sys.exit(0)
 
-              if args["no_repeat"]:
-                     questions = questions.drop(choice)
-                     n_tuple = n_tuple-1
+              choice = r.randint(a=0, b=n_questions-1)
 
-              try:
-                     # print question
-                     print("[bold red]Q: [italic white]" + questions["question"][choice])
-                     option = console.Console().input("Press 'ENTER' for next question or 'a' to show answer (press 'q' to exit) [bold yellow]-> ")
-                     
-                     # Print answer if request
+              # print question
+              print("[bold red]Q: [italic white]" + questions["question"][choice])
+              option = console.Console().input("Press 'ENTER' for next question or 'a' to show answer (press 'q' to exit) [bold yellow]-> ")
+              
+              # Print answer if request
+              if(option == 'a'):
+                     show_answer(questions=questions)
+                     option = console.Console().input("Press 'ENTER' for next question (press [bold]'q' to exit) [bold yellow]-> ")
+              # Print hint if request
+              elif(option == 'h'):
+                     show_hint(questions=questions)
+                     option = console.Console().input("Press 'ENTER' for next question or 'a' to show answer (press [bold]'q' to exit) [bold yellow]-> ")
                      if(option == 'a'):
-                            show_answer(questions=questions)
+                            show_answer(questions=questions, hint=questions["hint"][choice])
                             option = console.Console().input("Press 'ENTER' for next question (press [bold]'q' to exit) [bold yellow]-> ")
-                     # Print hint if request
-                     elif(option == 'h'):
-                            show_hint(questions=questions)
-                            option = console.Console().input("Press 'ENTER' for next question or 'a' to show answer (press [bold]'q' to exit) [bold yellow]-> ")
-                            if(option == 'a'):
-                                   show_answer(questions=questions, hint=questions["hint"][choice])
-                                   option = console.Console().input("Press 'ENTER' for next question (press [bold]'q' to exit) [bold yellow]-> ")
-              except:
-                     print("Ciao")"""
+              
+              if args["no_repeat"]:
+                     pop_from_dict(dict=questions, index=choice)
+                     questions = reorganize_index(dict=questions)
+                     n_questions = n_questions-1
        

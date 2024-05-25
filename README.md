@@ -3,7 +3,6 @@
 
 ## How to run
 
-
 ## How to insert your questions
 
 ## Demo
@@ -13,6 +12,7 @@
 ## Dependencies
 
 - `rich` *(used for CLI affordance)*
+- `pandas` *(used for CSV)*
 - `random` *(built-in module)*
 - `os` *(built-in module)*
 - `sys` *(built-in module)*
