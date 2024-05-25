@@ -1,13 +1,20 @@
 # Questions Generator
 
 
-## How to run
 
-## How to insert your questions
+## How to run 
+
+### CLI version
+
+### GUI version
+
+## How to insert your questions `CLI version`
+
 
 ## Demo
 
-![demo](images/demo.gif)
+![cli demo](images/demo.gif)
+> Command line demo
 
 ## Dependencies
 
@@ -17,6 +24,7 @@
 - `os` *(built-in module)*
 - `sys` *(built-in module)*
 - `argparse` *(built-in module)*
+- `PyQt5` *(used for GUI)*
 
 # Author
 
