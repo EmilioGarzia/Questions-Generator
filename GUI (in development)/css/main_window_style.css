@@ -1,0 +1,33 @@
+MainWindow{
+    background-color: rgb(6, 5, 30);
+}
+
+#copyright_label{
+    font-size: 16px;
+    padding-bottom: 5px;
+    font-style: italic;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: whitesmoke;
+}
+
+#start_btn{
+    font-size: 26px;
+    background-color: rgb(16, 220, 169);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#simulation_btn, #about_btn, #subjects_btn{
+    background-color: orange;
+    padding: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-family:Arial, Helvetica, sans-serif;
+    border-style: solid;
+    border-color: black;
+    border-width: 1px;
+}
+
+#simulation_btn:hover, #about_btn:hover, #subjects_btn:hover{
+    background-color: cornflowerblue;
+}

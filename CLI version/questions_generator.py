@@ -27,7 +27,7 @@ difficulty = args["difficulty"]
 # Refresh screen when answer is showed
 def refresh_console(question, answer=None, hint=None):
        os.system(clear_command)
-       print("[bold yellow]Question Generator developed by Emilio Garzia")
+       print("[bold yellow]Questions Generator developed by Emilio Garzia")
        print("[bold red]Q: [italic white]" + question)
 
        if answer:
@@ -87,7 +87,7 @@ if __name__ == "__main__":
        while option != "q":
               # Clear the screen and print logo
               os.system(clear_command)
-              print("[bold yellow]Question Generator developed by Emilio Garzia")
+              print("[bold yellow]Questions Generator developed by Emilio Garzia")
 
               if n_questions <= 0:
                      print("[bold red]Questions are finished!")
