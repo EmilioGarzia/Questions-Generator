@@ -1,6 +1,0 @@
-* ChatGPT API for answers
-* Add feature: users can mark wrong answer, and the marked questions have a higher chance of getting out
-* Add GUI (when the algorithm is completed)
-   * The users can create a JSON file for different topics directly from the GUI
-   * Checkbox -> not repeated questions
-* Do README.md
